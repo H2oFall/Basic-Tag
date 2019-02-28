@@ -1,0 +1,69 @@
+<html>
+  <head>
+    <script src="p5.min.js"></script>
+    <style>
+      body{
+        overflow:hidden;
+        
+      }
+    </style>
+  </head>
+  <body>
+    
+    <script>
+    var w = window.innerWidth;
+    var h = window.innerHeight;
+    var posX = 100; //this is the positition of our player
+    var posY = 350;
+    var cirX = 1000;
+    var cirY = 350;
+    var d;
+    
+      function setup(){
+        createCanvas(w,h);
+      }
+      function draw(){
+        let d = int(dist(posX, posY, cirX, cirY));
+        background(255);
+        
+        fill(color("#80ffd4"));
+        strokeWeight(0);
+        ellipse(posX,posY,50,50);
+        if((keyIsDown(65)) && (posX > 0)){
+          posX -= 10;
+        }
+        if((keyIsDown(68)) && (posX < w-50)){
+          posX += 10;
+        }
+        if((keyIsDown(83)) && (posY < h-50)){
+          posY += 10;
+        }
+        if((keyIsDown(87)) && (posY > 0)){
+          posY -= 10;
+        }
+        
+        fill(color('red'));
+        strokeWeight(0);
+        ellipse(cirX,cirY,50,50);
+        if((keyIsDown(74)) && (cirX > 0)){
+          cirX -= 10;
+        }
+        if((keyIsDown(76)) && (cirX < w-50)){
+          cirX += 10;
+        }
+        if((keyIsDown(75)) && (cirY < h-50)){
+          cirY += 10;
+        }
+        if((keyIsDown(73)) && (cirY > 0)){
+          cirY -= 10;
+        }
+        
+        if(d < 50){
+          window.alert("game over red wins");
+          noLoop();
+        }
+      
+      }
+    </script>
+  </body>
+</html>
